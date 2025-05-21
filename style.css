@@ -346,3 +346,81 @@ header h1::after {
   pointer-events: none;
 }
 
+
+
+
+.custom-alert {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10, 30, 60, 0.85); /* Azul escuro translúcido */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  backdrop-filter: blur(8px);
+}
+
+.custom-alert.hidden {
+  display: none;
+}
+
+.custom-alert-content {
+  background: #ffffff;
+  padding: 25px 35px;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(212, 175, 55, 0.6); /* sombra dourada suave */
+  max-width: 320px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  color: #0a1e3c; /* azul escuro para texto */
+  border: 3px solid #d4af37; /* borda dourada */
+  position: relative;
+  animation: fadeInScale 0.4s ease forwards;
+}
+
+.custom-alert-content::before {
+  content: "✨";
+  position: absolute;
+  top: -20px;
+  right: 15px;
+  font-size: 1.6em;
+  color: #d4af37; /* dourado */
+  animation: sparkle 2s infinite;
+}
+
+.custom-alert-content button {
+  margin-top: 22px;
+  padding: 10px 28px;
+  background: linear-gradient(135deg, #3498db, #2980b9); /* azul degradê */
+  border: none;
+  color: white;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(52, 152, 219, 0.6);
+  transition: background 0.3s ease;
+  font-size: 1em;
+  letter-spacing: 0.03em;
+}
+
+.custom-alert-content button:hover {
+  background: linear-gradient(135deg, #2980b9, #2471a3);
+  box-shadow: 0 8px 20px rgba(41, 128, 185, 0.8);
+}
+
+/* Animações */
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 1; transform: rotate(0deg) scale(1); }
+  50% { opacity: 0.6; transform: rotate(20deg) scale(1.1); }
+}

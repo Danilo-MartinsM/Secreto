@@ -22,14 +22,27 @@ updateCounter(); // Chama imediatamente
 
 // Função para "resgatar" vales-presentes
 function redeemGift(giftId) {
-    const gifts = [
-        null, // Índice 0 vazio
-        "Jantar romântico resgatado! Marque a data comigo. ❤️",
-        "Spa day ativado! Prepare-se para um dia de rei(a). �",
-        "Noite do filme confirmada! Já pego os cobertores. 🍿"
-    ];
-    alert(gifts[giftId]);
+  const gifts = [
+    null, // Índice 0 vazio
+    "Jantar romântico resgatado! Marque a data comigo. ❤️",
+    "Spa day ativado! Prepare-se para um dia de rainha.",
+    "Noite do filme confirmada! Já pego os cobertores. 🍿",
+    "Cinema resgatado! Vamos já para o catalogo de filmes. 🍿"
+  ];
+
+  const message = gifts[giftId];
+  const alertBox = document.getElementById('custom-alert');
+  const alertMessage = document.getElementById('custom-alert-message');
+  const alertClose = document.getElementById('custom-alert-close');
+
+  alertMessage.textContent = message;
+  alertBox.classList.remove('hidden');
+
+  alertClose.onclick = () => {
+    alertBox.classList.add('hidden');
+  };
 }
+
 
 
 
