@@ -1,0 +1,348 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9f5ff 100%);
+    color: #2c3e50;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+header h1 {
+    font-family: 'Pacifico', cursive;
+    color: #2c3e50;
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: inline-block;
+}
+
+header h1::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #d4af37 0%, #f9d423 100%);
+    border-radius: 3px;
+}
+
+.couple-photo {
+    width: 220px;
+    border-radius: 50%;
+    border: 5px solid white;
+    margin: 30px 0;
+    box-shadow: 0 10px 30px rgba(44, 62, 80, 0.2);
+    transition: all 0.5s ease;
+}
+
+.couple-photo:hover {
+    transform: rotate(5deg) scale(1.05);
+}
+
+.counter {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 30px 0;
+    box-shadow: 0 5px 25px rgba(44, 62, 80, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.counter h2 {
+    color: #3498db;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+}
+
+#time-together {
+    font-size: 1.8em;
+    font-weight: bold;
+    background: linear-gradient(90deg, #3498db 0%, #2c3e50 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.gifts {
+    margin-top: 40px;
+}
+
+.gifts h2 {
+    color: #2c3e50;
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.gifts h2::before {
+    content: "✧";
+    color: #d4af37;
+    margin-right: 10px;
+}
+
+.gifts h2::after {
+    content: "✧";
+    color: #d4af37;
+    margin-left: 10px;
+}
+
+.gift-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.card {
+    background: white;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    border-radius: 12px;
+    padding: 20px;
+    width: 220px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #d4af37 0%, #f9d423 100%);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(52, 152, 219, 0.2);
+}
+
+.card h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.card p {
+    color: #7f8c8d;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+/* Efeito de brilho dourado nos cards */
+.card:hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Galeria */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.photo-item {
+    position: relative;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid white;
+    box-shadow: 0 5px 20px rgba(44, 62, 80, 0.15);
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.photo-item img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(52, 152, 219, 0.3);
+}
+
+.photo-date {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    background: rgba(212, 175, 55, 0.9);
+    color: white;
+    padding: 5px;
+    font-size: 0.8em;
+    border-radius: 0 0 5px 5px;
+}
+
+/* Lightbox GALERIA*/
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(44, 62, 80, 0.95);
+    text-align: center;
+}
+
+.lightbox-content {
+    margin: 5% auto;
+    max-width: 80%;
+    max-height: 80%;
+    border: 5px solid white;
+    border-radius: 5px;
+    box-shadow: 0 0 30px #d4af37;
+}
+
+#lightbox-caption {
+    color: white;
+    font-size: 1.2em;
+    margin-top: 15px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #d4af37;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+    border-color: #d4af37;
+}
+
+.photo-item.old-photo img {
+    background: white;
+    padding: 15px 15px 40px 15px;
+    filter: sepia(0.3);
+}
+
+
+/* Overlay do coração */
+#heart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #e9f5ff 0%, #d4e7ff 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: all 1s ease;
+  overflow: hidden; /* Adicionado para conter os flocos */
+}
+
+#heart-overlay::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 300%;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.8) 2px, transparent 2px);
+  background-size: 20px 20px;
+  animation: backgroundSnow 60s linear infinite;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes backgroundSnow {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100%); }
+}
+
+
+
+.heart {
+  width: 150px;
+  height: 150px;
+  background-color: #ff6b6b;
+  position: relative;
+  transform: rotate(45deg);
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+  box-shadow: 0 0 50px rgba(255, 107, 107, 0.6);
+}
+
+.heart:before, .heart:after {
+  content: "";
+  width: 150px;
+  height: 150px;
+  background-color: #ff6b6b;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.heart:before {
+  top: -75px;
+  left: 0;
+}
+
+.heart:after {
+  top: 0;
+  left: -75px;
+}
+
+.click-text {
+  margin-top: 50px;
+  font-family: 'Pacifico', cursive;
+  color: #2c3e50;
+  font-size: 1.5em;
+  opacity: 0;
+  animation: fadeIn 2s 1s forwards;
+}
+
+@keyframes pulse {
+  0% { transform: rotate(45deg) scale(1); }
+  50% { transform: rotate(45deg) scale(1.1); }
+  100% { transform: rotate(45deg) scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Quando o overlay some */
+.heart-open {
+  opacity: 0;
+  pointer-events: none;
+}
+

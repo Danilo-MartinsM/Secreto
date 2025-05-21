@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Universo | Feliz Dia dos Namorados!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header>
+            <h1>Feliz Dia dos Namorados, <span id="name">Amorzinho</span>! ❤️</h1>
+            <img src="nos.jpeg" alt="Nossa foto" class="couple-photo">
+        </header>
+
+        <!-- Contador de Tempo -->
+        <div class="counter">
+            <h2>Nós estamos juntos há:</h2>
+            <div id="time-together">
+                <span id="days">00</span> dias, 
+                <span id="hours">00</span> horas, 
+                <span id="minutes">00</span> minutos e 
+                <span id="seconds">00</span> segundos!
+            </div>
+        </div>
+        <div class="gallery">
+            <h2>Nossa Linha do Tempo <i class="fas fa-camera-retro" style="color: #d4af37;"></i></h2>
+            <div class="photo-grid">
+                <div class="photo-item">
+                    <img src="nos1.jpeg" alt="Primeiro encontro" onclick="openLightbox('nos1.jpeg', 'Nosso primeiro encontro ❤️')">
+                    <p class="photo-date">26/01/2025</p>
+                </div>
+                <div class="photo-item">
+                    <img src="nos2.jpeg" alt="Primeiro encontro" onclick="openLightbox('nos2.jpeg', 'Nosso primeiro encontro ❤️')">
+                    <p class="photo-date">26/01/2025</p>
+                </div>
+                <!-- Adicione mais fotos assim -->
+            </div>
+        </div>
+
+        <!-- Lightbox (modal) -->
+        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+            <span class="close-btn">&times;</span>
+            <img id="lightbox-img" class="lightbox-content">
+            <div id="lightbox-caption"></div>
+        </div>
+        <!-- Vales-Presentes -->
+        <div class="gifts">
+            <h2>Vales-Presentes (clique para resgatar!):</h2>
+            <div class="gift-cards">
+                <div class="card" onclick="redeemGift(1)">
+                    <h3>Jantar Romântico</h3>
+                    <p>Eu te preparo um jantar à luz de velas!</p>
+                </div>
+                <div class="card" onclick="redeemGift(2)">
+                    <h3>Dia de Spa</h3>
+                    <p>Massagem Relaxante, máscara facial e mimos o dia todo.</p>
+                </div>
+                <div class="card" onclick="redeemGift(3)">
+                    <h3>Noite do Filme</h3>
+                    <p>Você escolhe o filme, eu preparo a pipoca.</p>
+                </div>
+                <div class="card" onclick="redeemGift(4)">
+                    <h3>Cinema</h3>
+                    <p>Entrada garantida para um dia especial no cinema.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Overlay do coração (vem ANTES do container principal) -->
+    <div id="heart-overlay">
+    <div class="heart"></div>
+    <p class="click-text">Clique no coração para abrir nosso mundo ❤️</p>
+</div>
+</body>
+</html>
