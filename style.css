@@ -428,3 +428,52 @@ header h1::after {
   0%, 100% { opacity: 1; transform: rotate(0deg) scale(1); }
   50% { opacity: 0.6; transform: rotate(20deg) scale(1.1); }
 }
+
+
+
+
+/* CSS para telas pequenas (celulares) */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 2rem; /* Ajusta o tamanho do título para caber melhor */
+  }
+
+  .content {
+    padding: 15px;
+  }
+
+  /* Ajusta as imagens para ficarem com largura máxima do dispositivo */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Ajustar o layout do vales-presente para ficarem em coluna */
+  .vales-presente {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* Ajusta o tamanho do contador */
+  #contador {
+    font-size: 1.2rem;
+  }
+
+  /* Ajustar o overlay do coração para não ocupar espaço demais */
+  .overlay-coracao {
+    width: 80px;
+    height: 80px;
+    /* Ajuste posição se precisar */
+  }
+
+  /* Botões e links ficam maiores para toque */
+  button, a {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+}
