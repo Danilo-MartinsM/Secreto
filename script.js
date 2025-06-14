@@ -1,6 +1,6 @@
 // Contador de tempo juntos (ajuste a data do início do relacionamento)
 // Contador de tempo juntos (ajuste a data do início do relacionamento)
-const startDate = new Date("2025-01-26T16:30:00"); // Substitua pela data de vocês!
+const startDate = new Date("2025-01-26T16:30:00");
 
 function updateCounter() {
   // ... (seu código do contador)
