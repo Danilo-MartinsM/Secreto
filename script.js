@@ -1,26 +1,16 @@
 // Contador de tempo juntos (ajuste a data do início do relacionamento)
+// Contador de tempo juntos (ajuste a data do início do relacionamento)
 const startDate = new Date("2025-01-26T16:30:00"); // Substitua pela data de vocês!
 
 function updateCounter() {
-    const now = new Date();
-    const diff = now - startDate;
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
+  // ... (seu código do contador)
 }
 
-// Atualiza o contador a cada segundo
 setInterval(updateCounter, 1000);
-updateCounter(); // Chama imediatamente
+updateCounter();
 
-// Função para "resgatar" vales-presentes
+// --- Funções relacionadas aos vales ---
+// Coloque aqui essa função (substituindo a que você já tem):
 function redeemGift(giftId) {
   const gifts = [
     null,
@@ -35,14 +25,11 @@ function redeemGift(giftId) {
     "Você manda agora! Seu desejo é uma ordem (com amor). 😘🎲"
   ];
 
-  const message = gifts[giftId];
-  
-  // Pegando o título (nome do vale) diretamente do DOM
+  const message = gifts[giftId] || "Vale desconhecido resgatado!";
   const giftName = document.querySelectorAll('.card h3')[giftId - 1]?.textContent || 'Vale desconhecido';
 
-  sendEmail(giftName, message); // <-- Atualizado
+  sendEmail(giftName, message);
 
-  // Alerta customizado
   const alertBox = document.getElementById('custom-alert');
   const alertMessage = document.getElementById('custom-alert-message');
   const alertClose = document.getElementById('custom-alert-close');
@@ -55,6 +42,7 @@ function redeemGift(giftId) {
   };
 }
 
+// Função que envia o email — coloque ela logo abaixo
 function sendEmail(giftName, giftMessage) {
   emailjs.send("service_r3zuqgj", "template_95l501f", {
     gift_name: giftName,
@@ -65,6 +53,10 @@ function sendEmail(giftName, giftMessage) {
     (error) => console.error("Erro ao enviar email:", error)
   );
 }
+
+// --- Outras funções do site (ex: animação dos corações) ---
+// (deixe o restante do seu código das animações aqui, sem mudanças)
+
 
 
 
