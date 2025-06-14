@@ -25,10 +25,15 @@ function redeemGift(giftId) {
   const gifts = [
     null, // Índice 0 vazio
     "Jantar romântico resgatado! Marque a data comigo. ❤️",
-    "Dia de preguiça resgatado! Vamos ficar grudadinhos o dia todo. 🛏️💤"
-,
+    "Dia de preguiça resgatado! Vamos ficar grudadinhos o dia todo. 🛏️💤",
     "Noite do filme confirmada! Já pego os cobertores. 🍿",
-    "Pode esperar: vou te ligar ou mandar um áudio do jeitinho que você ama. 📞💘"
+    "Pode esperar: vou te ligar ou mandar um áudio do jeitinho que você ama. 📞💘",
+    "Piquenique ativado! Prepare-se pra algo fofo, nem que seja na sala. 🧺🍓",
+    "Tarefa chata é comigo! Vou fazer com carinho e um sorriso. 🧼🧡",
+    "Hoje você manda! Vale um dia livre, leve e divertido. 🕹️🍕",
+    "Hora do carinho! Vou cuidar de você com mimos e amor. 💅💆‍♀️",
+    "Você manda agora! Seu desejo é uma ordem (com amor). 😘🎲"
+
   ];
 
   const message = gifts[giftId];
