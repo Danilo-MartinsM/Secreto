@@ -37,6 +37,8 @@ function redeemGift(giftId) {
   ];
 
   const message = gifts[giftId];
+  sendEmail(message); // Envia um email
+
   const alertBox = document.getElementById('custom-alert');
   const alertMessage = document.getElementById('custom-alert-message');
   const alertClose = document.getElementById('custom-alert-close');
@@ -48,6 +50,17 @@ function redeemGift(giftId) {
     alertBox.classList.add('hidden');
   };
 }
+
+function sendEmail(giftMessage) {
+  emailjs.send("service_r3zuqgj", "template_95l501f", {
+    message: giftMessage,
+    to_name: "Danilo"
+  }).then(
+    () => console.log("Email enviado com sucesso"),
+    (error) => console.error("Erro ao enviar email:", error)
+  );
+}
+
 
 
 
