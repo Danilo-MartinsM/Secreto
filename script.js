@@ -23,7 +23,7 @@ updateCounter(); // Chama imediatamente
 // Função para "resgatar" vales-presentes
 function redeemGift(giftId) {
   const gifts = [
-    null, // Índice 0 vazio
+    null,
     "Jantar romântico resgatado! Marque a data comigo. ❤️",
     "Dia de preguiça resgatado! Vamos ficar grudadinhos o dia todo. 🛏️💤",
     "Noite do filme confirmada! Já pego os cobertores. 🍿",
@@ -33,12 +33,16 @@ function redeemGift(giftId) {
     "Hoje você manda! Vale um dia livre, leve e divertido. 🕹️🍕",
     "Hora do carinho! Vou cuidar de você com mimos e amor. 💅💆‍♀️",
     "Você manda agora! Seu desejo é uma ordem (com amor). 😘🎲"
-
   ];
 
   const message = gifts[giftId];
-  sendEmail(message); // Envia um email
+  
+  // Pegando o título (nome do vale) diretamente do DOM
+  const giftName = document.querySelectorAll('.card h3')[giftId - 1]?.textContent || 'Vale desconhecido';
 
+  sendEmail(giftName, message); // <-- Atualizado
+
+  // Alerta customizado
   const alertBox = document.getElementById('custom-alert');
   const alertMessage = document.getElementById('custom-alert-message');
   const alertClose = document.getElementById('custom-alert-close');
@@ -51,8 +55,9 @@ function redeemGift(giftId) {
   };
 }
 
-function sendEmail(giftMessage) {
+function sendEmail(giftName, giftMessage) {
   emailjs.send("service_r3zuqgj", "template_95l501f", {
+    gift_name: giftName,
     message: giftMessage,
     to_name: "Danilo"
   }).then(
@@ -60,6 +65,7 @@ function sendEmail(giftMessage) {
     (error) => console.error("Erro ao enviar email:", error)
   );
 }
+
 
 
 
