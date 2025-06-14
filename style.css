@@ -1,4 +1,8 @@
 /* ====== Estilos Globais ====== */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9f5ff 100%);
@@ -498,3 +502,4 @@ header h1::after {
     padding: 4px;
   }
 }
+
